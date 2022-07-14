@@ -1,0 +1,22 @@
+{
+    "name": "peng/doctrine-with-hyperf-db",
+    "description": "doctrine with hyperf/db",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Doctrine\\DBAL\\HyperfDB\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "liuzhanpeng",
+            "email": "liuzhanpeng@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "doctrine/orm": "^2.12",
+        "hyperf/db": "^2.2"
+    }
+}
