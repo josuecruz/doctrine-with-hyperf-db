@@ -7,6 +7,7 @@ use Doctrine\DBAL\Driver\PDO\Result as PDOResult;
 use Doctrine\DBAL\Driver\PDO\Statement as PDOStatement;
 use Doctrine\DBAL\Driver\Result;
 use Doctrine\DBAL\Driver\Statement;
+use Doctrine\DBAL\ParameterType;
 use Hyperf\DB\DB;
 
 /**
@@ -41,7 +42,11 @@ class Connection implements DriverConnection
 
     public function quote($value, $type = ParameterType::STRING)
     {
-        return $this->db->quote($value, $type);
+        if (is_string($value)) {
+            return $this->db->quote($value, $type);
+        }
+
+        return $value;
     }
 
     public function exec(string $sql): int
