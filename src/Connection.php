@@ -3,9 +3,8 @@
 namespace Doctrine\DBAL\HyperfDB;
 
 use Doctrine\DBAL\Driver\Connection as DriverConnection;
-use Doctrine\DBAL\Driver\PDO\Result as PDOResult;
 use Doctrine\DBAL\Driver\PDO\Statement as PDOStatement;
-use Doctrine\DBAL\Driver\Result;
+use Doctrine\DBAL\Driver\Result as ResultInterface;
 use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\ParameterType;
 use Hyperf\DB\DB;
@@ -29,7 +28,7 @@ class Connection implements DriverConnection
         return new PDOStatement($this->db->prepare($sql));
     }
 
-    public function query(string $sql): Result
+    public function query(string $sql): ResultInterface
     {
         /**
          * @var \PDOStatement
@@ -37,7 +36,7 @@ class Connection implements DriverConnection
         $statement = $this->db->prepare($sql);
         $statement->execute();
 
-        return new PDOResult($statement);
+        return new Result($statement);
     }
 
     public function quote($value, $type = ParameterType::STRING)
