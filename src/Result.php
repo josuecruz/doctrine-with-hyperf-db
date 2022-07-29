@@ -100,7 +100,13 @@ final class Result implements ResultInterface
     private function fetch(int $mode)
     {
         try {
-            return $this->statement->fetch($mode);
+            $result = $this->statement->fetchAll($mode);
+
+            if ($result === false || count($result)) {
+                return false;
+            }
+
+            return $result[0];
         } catch (PDOException $exception) {
             throw Exception::new($exception);
         }
