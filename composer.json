@@ -1,5 +1,5 @@
 {
-    "name": "lzpeng/doctrine-with-hyperf-db",
+    "name": "josuecruz/doctrine-with-hyperf-db",
     "description": "doctrine with hyperf/db",
     "type": "library",
     "license": "MIT",
