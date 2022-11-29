@@ -15,8 +15,8 @@
         }
     ],
     "require": {
-        "php": ">=7.4",
-        "doctrine/orm": "^2.12",
-        "hyperf/db": "^2.2"
+        "php": ">=8.0",
+        "doctrine/orm": "~3.0",
+        "hyperf/db": "~3.0"
     }
 }
